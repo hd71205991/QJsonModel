@@ -39,7 +39,7 @@ Changes:
 
 import json
 
-from Qt import QtWidgets, QtCore, __binding__
+from PyQt5 import QtWidgets, QtCore
 
 
 class QJsonTreeItem(object):
@@ -123,6 +123,15 @@ class QJsonTreeItem(object):
 
         return rootItem
 
+    @property
+    def as_dict(self):
+        typename = self.type
+        children = self._children
+        if children and self.type == dict:
+            return {child.key: child.as_dict for child in children}
+        elif children and self.type == list:
+            return [child.as_dict for child in children]
+        return self.value
 
 class QJsonModel(QtCore.QAbstractItemModel):
     def __init__(self, parent=None):
@@ -194,7 +203,7 @@ class QJsonModel(QtCore.QAbstractItemModel):
                 item = index.internalPointer()
                 item.value = str(value)
 
-                if __binding__ in ("PySide", "PyQt4"):
+                if "PyQt5" in ("PySide", "PyQt4"):
                     self.dataChanged.emit(index, index)
                 else:
                     self.dataChanged.emit(index, index, [QtCore.Qt.EditRole])
@@ -279,6 +288,8 @@ class QJsonModel(QtCore.QAbstractItemModel):
         else:
             return item.value
 
+    def as_dict(self):
+        return self._rootItem.as_dict
 
 if __name__ == '__main__':
     import sys
