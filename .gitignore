@@ -1,32 +1,63 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+*.jar
+*.class
+*.swp
+*.pyc
 
-# Precompiled Headers
-*.gch
-*.pch
+.DS_Store
+.idea/
+.vscode
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+**/__pycache__/
+.classpath
+.project
+.settings
+services/streaming/target/
+**/*.log
+**/.pytest_cache/*
+**/.venv/*
+.classpath
+.project
+.settings
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-# Fortran module files
-*.mod
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
 
-# Executables
-*.exe
-*.out
-*.app
-
-# Qt 
-*.pro.user 
-
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
