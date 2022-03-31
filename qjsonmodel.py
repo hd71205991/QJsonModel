@@ -131,6 +131,8 @@ class QJsonTreeItem(object):
             return {child.key: child.as_dict for child in children}
         elif children and self.type == list:
             return [child.as_dict for child in children]
+        elif type(self.value) == str:
+            return self.value.strip()
         return self.value
 
 class QJsonModel(QtCore.QAbstractItemModel):
