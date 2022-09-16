@@ -140,7 +140,7 @@ class QJsonModel(QtCore.QAbstractItemModel):
         super(QJsonModel, self).__init__(parent)
 
         self._rootItem = QJsonTreeItem()
-        self._headers = ("key", "value")
+        self._headers = ("配置名称", "配置的值")
 
     def clear(self):
         self.load({})
